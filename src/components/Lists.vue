@@ -1,10 +1,7 @@
 <template>
   <div>
     <ul class="todo-main">
-      <Item />
-      <Item />
-      <Item />
-      <Item />
+      <Item :todos="todo" />
     </ul>
   </div>
 </template>
@@ -14,6 +11,7 @@ import Item from './Item.vue';
 
 export default {
   name: 'Lists',
+  props: ['todo'],
   components: { Item },
 
   data() {

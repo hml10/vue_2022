@@ -1,9 +1,9 @@
 <template>
   <div>
-    <li>
+    <li v-for="todo in todos" :key="todo.id">
       <label>
-        <input type="checkbox" />
-        <span>xxxxx</span>
+        <input type="checkbox" v-model="todo.done" />
+        <span>{{ todo.title }}</span>
       </label>
       <button class="btn btn-danger" style="display: none">删除</button>
     </li>
@@ -13,6 +13,8 @@
 <script>
 export default {
   name: 'Item',
+  props: ['todos'],
+
   data() {
     return {};
   },

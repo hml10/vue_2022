@@ -4,7 +4,7 @@
       <div class="todo-container">
         <div class="todo-wrap">
           <ToHeader />
-          <Lists />
+          <Lists :todo="todos" />
           <ToFooter />
         </div>
       </div>
@@ -20,6 +20,16 @@ import ToFooter from './components/ToFooter.vue';
 export default {
   name: 'App',
   components: { Lists, ToHeader, ToFooter },
+
+  data() {
+    return {
+      todos: [
+        { id: '001', title: '抽烟', done: true },
+        { id: '002', title: '喝酒', done: false },
+        { id: '003', title: '开车', done: true },
+      ],
+    };
+  },
   methods: {},
 };
 </script>
