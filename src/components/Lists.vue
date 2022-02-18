@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul class="todo-main">
-      <Item :todos="todo" />
+      <Item v-for="todo in todos" :key="todo.id" :todo="todo" />
     </ul>
   </div>
 </template>
@@ -11,7 +11,7 @@ import Item from './Item.vue';
 
 export default {
   name: 'Lists',
-  props: ['todo'],
+  props: ['todos'],
   components: { Item },
 
   data() {

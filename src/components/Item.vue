@@ -1,6 +1,6 @@
 <template>
   <div>
-    <li v-for="todo in todos" :key="todo.id">
+    <li>
       <label>
         <input type="checkbox" v-model="todo.done" />
         <span>{{ todo.title }}</span>
@@ -13,7 +13,7 @@
 <script>
 export default {
   name: 'Item',
-  props: ['todos'],
+  props: ['todo'],
 
   data() {
     return {};

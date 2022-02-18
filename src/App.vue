@@ -4,7 +4,7 @@
       <div class="todo-container">
         <div class="todo-wrap">
           <ToHeader />
-          <Lists :todo="todos" />
+          <Lists :todos="todos" />
           <ToFooter />
         </div>
       </div>
