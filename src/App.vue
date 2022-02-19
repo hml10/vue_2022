@@ -4,7 +4,7 @@
       <div class="todo-container">
         <div class="todo-wrap">
           <ToHeader :todos="todos" :addTodo="addTodo" />
-          <Lists :todos="todos" />
+          <Lists :todos="todos" :isCheck="isCheck" />
           <ToFooter />
         </div>
       </div>
@@ -31,10 +31,19 @@ export default {
     };
   },
   methods: {
-    // 添加一个todo对象
+    // 添加一个todo对象，把传过来的todo对象进行添加操作
     addTodo(x) {
       // console.log(x);
       this.todos.unshift(x);
+    },
+
+    // 勾选或不选，把传过来的id和遍历后的id进行比较，然后取反
+    isCheck(id) {
+      this.todos.forEach((todo) => {
+        if (todo.id === id) {
+          todo.done = !todo.done;
+        }
+      });
     },
   },
 };

@@ -4,7 +4,11 @@
       <label>
         <!-- <input type="checkbox" v-model="todo.done" /> -->
 
-        <input type="checkbox" :checked="todo.done" />
+        <input
+          type="checkbox"
+          :checked="todo.done"
+          @click="handleCheck(todo.id)"
+        />
         <span>{{ todo.title }}</span>
       </label>
       <button class="btn btn-danger" style="display: none">删除</button>
@@ -15,10 +19,16 @@
 <script>
 export default {
   name: 'Item',
-  props: ['todo'],
+  props: ['todo', 'isCheck'],
 
   data() {
     return {};
+  },
+
+  methods: {
+    handleCheck(id) {
+      this.isCheck(id);
+    },
   },
 
   // mounted() {
