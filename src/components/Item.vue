@@ -34,6 +34,7 @@ export default {
   },
 
   methods: {
+    // 勾选或取消勾选
     handleCheck(id) {
       this.isCheck(id);
     },
@@ -96,5 +97,9 @@ li:last-child {
 /* li:hover {
   color: green;
   background-color: #ddd;
+}
+
+li:hover button{
+  display: block;
 } */
 </style>
