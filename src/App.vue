@@ -3,7 +3,7 @@
     <div id="root">
       <div class="todo-container">
         <div class="todo-wrap">
-          <ToHeader />
+          <ToHeader :todos="todos" :addTodo="addTodo" />
           <Lists :todos="todos" />
           <ToFooter />
         </div>
@@ -30,7 +30,13 @@ export default {
       ],
     };
   },
-  methods: {},
+  methods: {
+    // 添加一个todo对象
+    addTodo(x) {
+      // console.log(x);
+      this.todos.unshift(x);
+    },
+  },
 };
 </script>
 

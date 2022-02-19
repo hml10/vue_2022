@@ -1,16 +1,61 @@
 <template>
   <div>
     <div class="todo-header">
-      <input type="text" placeholder="请输入你的任务名称，按回车键确认" />
+      <input
+        type="text"
+        placeholder="请输入你的任务名称，按回车键确认"
+        v-model="search"
+        @keyup.enter="add"
+      />
     </div>
   </div>
 </template>
 
 <script>
+import { nanoid } from 'nanoid';
+
 export default {
   name: 'ToHeader',
+  props: ['todos', 'addTodo'],
+
   data() {
-    return {};
+    return {
+      search: '',
+    };
+  },
+
+  methods: {
+    add() {
+      if (this.search.trim() === '') return alert('输入不能为空！');
+
+      const obj = {
+        id: nanoid(),
+        title: this.search.trim(),
+        done: false,
+      };
+
+      // this.todos.unshift(obj);
+      this.search = '';
+
+      this.addTodo(obj);
+    },
+
+    // add() {
+    //   const title = this.search.trim();
+
+    //   if (title === '') return alert('输入不能为空！');
+
+    //   const obj = {
+    //     id: nanoid(),
+    //     title,
+    //     done: false,
+    //   };
+
+    //   // this.todos.unshift(obj);
+    //   this.search = '';
+
+    //   this.addTodo(obj);
+    // },
   },
 };
 </script>
