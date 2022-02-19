@@ -1,6 +1,10 @@
 <template>
   <div>
-    <li>
+    <li
+      @mouseenter="mouseHandle(true)"
+      @mouseleave="mouseHandle(false)"
+      :style="{ color: fontColor, backgroundColor: bgColor }"
+    >
       <label>
         <!-- <input type="checkbox" v-model="todo.done" /> -->
 
@@ -11,7 +15,7 @@
         />
         <span>{{ todo.title }}</span>
       </label>
-      <button class="btn btn-danger" style="display: none">删除</button>
+      <button class="btn btn-danger" v-show="isShow">删除</button>
     </li>
   </div>
 </template>
@@ -22,12 +26,29 @@ export default {
   props: ['todo', 'isCheck'],
 
   data() {
-    return {};
+    return {
+      fontColor: '',
+      bgColor: '',
+      isShow: false,
+    };
   },
 
   methods: {
     handleCheck(id) {
       this.isCheck(id);
+    },
+
+    //鼠标移动添加高亮
+    mouseHandle(flag) {
+      if (flag) {
+        this.fontColor = 'green';
+        this.bgColor = '#ddd';
+        this.isShow = true;
+      } else {
+        this.fontColor = '';
+        this.bgColor = '';
+        this.isShow = false;
+      }
     },
   },
 
@@ -61,7 +82,6 @@ li label li input {
 
 li button {
   float: right;
-  display: none;
   margin-top: 3px;
 }
 
@@ -72,4 +92,9 @@ li:before {
 li:last-child {
   border-bottom: none;
 }
+
+/* li:hover {
+  color: green;
+  background-color: #ddd;
+} */
 </style>
