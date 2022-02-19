@@ -6,6 +6,7 @@
         :key="todo.id"
         :todo="todo"
         :isCheck="isCheck"
+        :del="del"
       />
     </ul>
   </div>
@@ -16,7 +17,7 @@ import Item from './Item.vue';
 
 export default {
   name: 'Lists',
-  props: ['todos', 'isCheck'],
+  props: ['todos', 'isCheck', 'del'],
   components: { Item },
 
   data() {

@@ -15,7 +15,9 @@
         />
         <span>{{ todo.title }}</span>
       </label>
-      <button class="btn btn-danger" v-show="isShow">删除</button>
+      <button class="btn btn-danger" v-show="isShow" @click="delTodo(todo.id)">
+        删除
+      </button>
     </li>
   </div>
 </template>
@@ -23,7 +25,7 @@
 <script>
 export default {
   name: 'Item',
-  props: ['todo', 'isCheck'],
+  props: ['todo', 'isCheck', 'del'],
 
   data() {
     return {
@@ -50,6 +52,11 @@ export default {
         this.bgColor = '';
         this.isShow = false;
       }
+    },
+
+    // 删除
+    delTodo(id) {
+      this.del(id);
     },
   },
 

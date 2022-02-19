@@ -4,7 +4,7 @@
       <div class="todo-container">
         <div class="todo-wrap">
           <ToHeader :todos="todos" :addTodo="addTodo" />
-          <Lists :todos="todos" :isCheck="isCheck" />
+          <Lists :todos="todos" :isCheck="isCheck" :del="del" />
           <ToFooter />
         </div>
       </div>
@@ -44,6 +44,21 @@ export default {
           todo.done = !todo.done;
         }
       });
+    },
+
+    // 删除
+    del(id) {
+      if (confirm('确定删除吗？')) {
+        // this.todos.splice(id, 1); //只能删除index索引的那种
+
+        this.todos = this.todos.filter((item) => {
+          // if (item.id !== id) {
+          //   return true;
+          // }
+
+          return item.id !== id;
+        });
+      }
     },
   },
 };
