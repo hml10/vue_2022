@@ -5,7 +5,11 @@
         <div class="todo-wrap">
           <ToHeader :todos="todos" :addTodo="addTodo" />
           <Lists :todos="todos" :isCheck="isCheck" :del="del" />
-          <ToFooter />
+          <ToFooter
+            :todos="todos"
+            :checkAllTodo="checkAllTodo"
+            :clearAllTodo="clearAllTodo"
+          />
         </div>
       </div>
     </div>
@@ -59,6 +63,22 @@ export default {
           return item.id !== id;
         });
       }
+    },
+
+    // 全选或全不选
+    checkAllTodo(done) {
+      // console.log(done);
+      this.todos.forEach((todo) => {
+        todo.done = done;
+      });
+    },
+
+    // 清除选中的所有todo
+    clearAllTodo() {
+      this.todos = this.todos.filter((todo) => {
+        return todo.done !== true;
+        // return !todo.done
+      });
     },
   },
 };
