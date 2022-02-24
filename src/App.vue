@@ -27,11 +27,12 @@ export default {
 
   data() {
     return {
-      todos: [
-        { id: '001', title: '抽烟', done: true },
-        { id: '002', title: '喝酒', done: false },
-        { id: '003', title: '开车', done: true },
-      ],
+      todos: JSON.parse(localStorage.getItem('todos')) || [],
+      // todos: [
+      //   { id: '001', title: '抽烟', done: true },
+      //   { id: '002', title: '喝酒', done: false },
+      //   { id: '003', title: '开车', done: true },
+      // ],
     };
   },
   methods: {
@@ -79,6 +80,16 @@ export default {
         return todo.done !== true;
         // return !todo.done
       });
+    },
+  },
+
+  // 监视
+  watch: {
+    todos: {
+      deep: true,
+      handler(val) {
+        localStorage.setItem('todos', JSON.stringify(val));
+      },
     },
   },
 };
