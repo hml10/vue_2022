@@ -87,6 +87,11 @@ export default {
     this.$bus.$on('isCheck', this.isCheck);
     this.$bus.$on('del', this.del);
   },
+
+  beforeDestroy() {
+    this.$bus.$off('isCheck');
+    this.$bus.$off('del');
+  },
 };
 </script>
 
