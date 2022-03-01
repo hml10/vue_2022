@@ -29,8 +29,13 @@ export default {
       axios
         .get(`http://api.github.com/search/users?q=${this.search}`)
         .then((response) => {
-          const result = response.data.items;
-          // console.log(result);
+          const result = response.data.items.map((user) => ({
+            login: user.login,
+            html_url: user.html_url,
+            avatar_url: user.avatar_url,
+          })); // 因为得到的是一个数组，在使用map方法把需要的数据，取出来
+
+          console.log('##', result);
           this.$bus.$emit('u', result);
         })
         .catch((err) => {
