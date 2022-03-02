@@ -14,11 +14,10 @@
 
 <script>
 export default {
-  name: 'App',
+  name: "App",
   data() {
     return {
       // count: 0,
-      msg: '',
     };
   },
   // computed: {
@@ -33,20 +32,20 @@ export default {
       // this.$store.dispatch("increment");
 
       // 提交对应的mutation
-      this.$store.commit('increment');
+      this.$store.commit("increment");
     },
     decrement() {
       // 提交对应的mutation
-      this.$store.commit('decrement');
+      this.$store.commit("decrement");
     },
 
     incrementOrOdd() {
       // 提交对应的action
-      this.$store.dispatch('incrementOrOdd');
+      this.$store.dispatch("incrementOrOdd");
     },
     incrementAsync() {
       // 提交对应的action
-      this.$store.dispatch('incrementAsync');
+      this.$store.dispatch("incrementAsync");
     },
   },
 
@@ -56,4 +55,5 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+</style>
