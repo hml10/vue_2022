@@ -5,24 +5,10 @@
         <!-- <router-link to="/home/message/detail?id=666&title=你好啊！">消息001</router-link> -->
 
         <!-- 跳转路由并携带query参数，to的字符串写法，第一种： -->
-        <router-link :to="`/home/message/detail?id=${m.id}&title=${m.title}`">
-          {{ m.title }}
-        </router-link>
+        <!-- <router-link :to="`/home/message/detail?id=${m.id}&title=${m.title}`">{{ m.title }}</router-link> -->
 
         <!-- 跳转路由并携带query参数，to的对象写法，第二种：(参数：path跳转地址，query配置对象) -->
-        <!-- <router-link
-          :to="{
-            name: 'xiangqing',
-            query: {
-              id: m.id,
-              title: m.title,
-            },
-          }"
-        >
-          {{ m.title }}
-        </router-link> -->
-
-        <!-- <router-link
+        <router-link
           :to="{
             path: '/home/message/detail',
             query: {
@@ -32,7 +18,7 @@
           }"
         >
           {{ m.title }}
-        </router-link> -->
+        </router-link>
       </li>
     </ul>
     <hr />
