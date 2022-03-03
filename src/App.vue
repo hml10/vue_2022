@@ -12,13 +12,19 @@
 
           <!-- 路由跳转地址 -->
           <router-link
+            replace
             class="list-group-item"
             :to="{ path: '/about' }"
             active-class="active"
           >
             About
           </router-link>
-          <router-link class="list-group-item" to="/home" active-class="active">
+          <router-link
+            replace
+            class="list-group-item"
+            to="/home"
+            active-class="active"
+          >
             Home
           </router-link>
         </div>
