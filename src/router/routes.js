@@ -37,11 +37,11 @@ export default [
             // props: true,
 
             // props第三种写法，值为函数，(返回值必须是一个对象)能接收一个参数$route。也是以props形式传给 Detail组件
-            props($store) {
+            props($route) {
               // return { id: 666, title: '你好啊！' };
               return {
-                id: $store.params.id,
-                title: $store.params.title,
+                id: $route.params.id,
+                title: $route.params.title,
               };
             },
 
