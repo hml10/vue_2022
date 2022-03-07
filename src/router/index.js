@@ -11,7 +11,7 @@ Vue.use(VueRouter);
 
 // 创建路由器对象,并暴露出去
 const router = new VueRouter({
-  mode: 'hash', // history---地址栏中没有#  hash ----地址栏中带有#
+  mode: 'history', // history---地址栏中没有#  hash ----地址栏中带有#
   routes,
 });
 
