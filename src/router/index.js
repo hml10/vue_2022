@@ -19,7 +19,7 @@ const router = new VueRouter({
 // 全局前置路由守卫，1、初始化的时候被调用，2、每次路由切换之前被调用
 // to 你要去哪（将要访问的路径）
 // from 你从哪来（从哪个路径跳转而来）
-// next 放行
+// next 放行  next(''/login) 强制跳转的路径
 /* router.beforeEach((to, from, next) => {
   console.log('前置路由守卫：', to, from);
 
