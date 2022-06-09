@@ -1,7 +1,6 @@
 <template>
   <div>
     <div class="row">
-      <!-- 测试 -->
       <Banner />
     </div>
     <div class="row">
