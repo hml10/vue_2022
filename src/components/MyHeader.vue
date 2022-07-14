@@ -10,6 +10,8 @@
 </template>
 
 <script>
+import { nanoid } from 'nanoid';
+
 export default {
   name: 'MyHeader',
   props: ['addTodo'],
@@ -23,7 +25,7 @@ export default {
     add() {
       if (this.search.trim() === '') return alert('输入不能为空');
 
-      const obj = { id: Date.now(), title: this.search.trim(), done: false };
+      const obj = { id: nanoid(), title: this.search.trim(), done: false };
       this.addTodo(obj);
       this.search = '';
     },

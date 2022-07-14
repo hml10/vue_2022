@@ -1,7 +1,7 @@
 <template>
   <div class="todo-container">
     <div class="todo-wrap">
-      <MyHeader />
+      <MyHeader :addTodo="addTodo" />
       <List :todos="todos" />
       <MyFooter />
     </div>
@@ -23,6 +23,12 @@ export default {
         { id: '002', title: '随风起舞', done: false },
       ],
     };
+  },
+
+  methods: {
+    addTodo(todo) {
+      this.todos.unshift(todo);
+    },
   },
 };
 </script>
