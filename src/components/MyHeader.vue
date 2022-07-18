@@ -3,15 +3,13 @@
     <input
       type="text"
       placeholder="请输入你的任务名称，按回车键确认"
-      v-model="search"
       @keyup.enter="add"
+      v-model="search"
     />
   </div>
 </template>
 
 <script>
-import { nanoid } from 'nanoid';
-
 export default {
   name: 'MyHeader',
   props: ['addTodo'],
@@ -23,9 +21,9 @@ export default {
   },
   methods: {
     add() {
-      if (this.search.trim() === '') return alert('输入不能为空');
+      if (this.search.trim() === '') return alert('不能为空');
 
-      const obj = { id: nanoid(), title: this.search.trim(), done: false };
+      const obj = { id: Date.now(), title: this.search.trim(), done: false };
       this.addTodo(obj);
       this.search = '';
     },

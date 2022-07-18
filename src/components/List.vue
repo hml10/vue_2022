@@ -1,6 +1,13 @@
 <template>
   <ul class="todo-main">
-    <Item v-for="todo in todos" :key="todo.id" :todo="todo" />
+    <Item
+      v-for="todo in todos"
+      :key="todo.id"
+      :todo="todo"
+      :checkTodo="checkTodo"
+      :a="true"
+      :delTodo="delTodo"
+    />
   </ul>
 </template>
 
@@ -9,7 +16,7 @@ import Item from './Item.vue';
 
 export default {
   name: 'List',
-  props: ['todos'],
+  props: ['todos', 'checkTodo', 'delTodo'],
   components: { Item },
 
   data() {
