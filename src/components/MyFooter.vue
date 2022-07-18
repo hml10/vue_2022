@@ -49,7 +49,9 @@ export default {
 
   methods: {
     clearAll() {
-      this.clear();
+      if (confirm('确定删除全部？')) {
+        this.clear();
+      }
     },
   },
 };

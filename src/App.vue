@@ -18,10 +18,11 @@ export default {
   components: { MyHeader, MyFooter, List },
   data() {
     return {
-      todos: [
-        { id: '001', title: '逆天而行', done: true },
-        { id: '002', title: '随风起舞', done: false },
-      ],
+      // todos: [
+      //   { id: '001', title: '逆天而行', done: true },
+      //   { id: '002', title: '随风起舞', done: false },
+      // ],
+      todos: JSON.parse(localStorage.getItem('todo')) || [],
     };
   },
   methods: {
@@ -59,6 +60,16 @@ export default {
       this.todos = this.todos.filter((todo) => {
         return !todo.done;
       });
+    },
+  },
+
+  watch: {
+    todos: {
+      deep: true,
+      handler(val) {
+        // console.log(val);
+        localStorage.setItem('todo', JSON.stringify(val));
+      },
     },
   },
 };
